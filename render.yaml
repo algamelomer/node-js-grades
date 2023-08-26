@@ -1,6 +1,5 @@
-services:
+web:
   - name: app.js
-    plan: starter
-    type: web
     buildCommand: npm install
     startCommand: node app.js
+    root: .
