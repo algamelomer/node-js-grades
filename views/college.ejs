@@ -4,48 +4,123 @@
     <title><%= collegeName %></title>
     <style>
         body {
-            font-family: Arial, sans-serif;
-        }
-        h1 {
-            text-align: center;
-            margin-top: 20px;
-        }
-        table {
-            border-collapse: collapse;
-            width: 80%;
-            margin: 20px auto;
-        }
-        th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
-            text-align: center;
-        }
-        th {
-            background-color: #f2f2f2;
-        }
-        tr:nth-child(even) {
-            background-color: #f2f2f2;
-        }
-        tr:hover {
-            background-color: #ddd;
-        }
+  display: fixed;
+  justify-content: center;
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #e3e8ee;
+}
+.head {
+  display: flex;
+  align-items: center;
+  justify-content: left;
+}
+h3 {
+  letter-spacing: -1px;
+  color:#5469d4}
+
+img {
+  width: 90px;
+  height: auto;
+}
+
+.department{
+  height: 50px;
+  padding:auto;
+  margin:auto;
+  position:relative;
+  display: flex;
+  left:0;
+  color: #5469d4;
+  text-decoration-line: underline;}
+
+  table{
+    background-color: gray;
+    margin: 30px auto;
+    border-radius: 5px;
+}
+.term{
+  background-color: gray;
+}
+th{
+    
+    text-transform: uppercase;
+    background-image: linear-gradient(to left, rgb(255, 0, 166), rgb(109, 70, 194),rgb(89, 4, 209));
+    height: 30px;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    color: white;
+    border: solid 1px rgb(160, 200, 0);
+    border-radius: 5px;
+
+    }
+td{
+    background-color: rgba(28, 154, 148, 0.796);
+    height: 20px;
+    width: 400px ;
+    text-transform:capitalize;
+    font-size: larger;
+    font-weight: bold;
+    text-align: center;
+    color: whitesmoke;
+    border-radius: 5px;
+    padding: 2px;
+    }
     </style>
 </head>
 <body>
     <h1>college: <%= collegeName %></h1>
     <% if (row) { %>
+
         <table>
             <tr>
-                <% for (let cell of excelData[6]) { %>
-                    <th><%= cell %></th>
-                <% } %>
+            <th><b><%= excelData[6][1] %></b></th>
+            <th><%= row[1] %></th>
             </tr>
-            <tr>
-                <% for (let cell of row) { %>
-                    <td><%= cell %></td>
-                <% } %>
+          <tr>
+            <th><b><%= excelData[6][2] %></b></th>
+            <th><%= row[2] %></th>
             </tr>
-        </table>
+           <tr>
+            <td class='term'>First Term</td>
+            <td class='term'></td>
+            </tr>
+            
+            <% for (let i = 3; i < excelData[6].length; i++) { 
+                if (i == 9) {%>
+                    <tr>
+            <td class='term'>Second Term</td>
+            <td class='term'></td>
+            </tr>
+            <%  }%>
+            <% if(excelData[6][i]=="التقدير"){%>
+              <tr>
+              <td><b><%= excelData[6][i]%></b></td>
+              <td><%= row[i] %></td>
+              </tr>
+              <%  continue;
+                }%>
+                <tr>
+
+                    <% if(excelData[6][i]=="%"){%>
+                        <tr>
+                        <td><b><%= excelData[6][i]%></b></td>
+                        <td><%= row[i]*100 %></td>
+                        </tr>
+                        <%  continue;
+                          }%>
+                          <tr>
+                    <% if(excelData[6][i]==null)
+                    {continue;}%>
+
+            <td><b><%= excelData[6][i]%></b></td>
+            <td><%= row[i] %></td>
+            </tr>
+            <% }%>
+            
+            </table>
+        
+        
     <% } else { %>
         <p>No matching row found.</p>
     <% } %>
