@@ -3,4 +3,4 @@ services:
     plan: starter
     type: web
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node app.js
