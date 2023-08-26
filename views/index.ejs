@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="author" content="Egy-Tech">
+    <meta name="description" content="this site was made under the supervision of Dr. Ossama El-Nahas by Egy-tech team:(omar algamel,ziad hassan,abdullah 8areb,abdullah mahmoud 5anifr,sherif)which is used for the BATU student results">
+    <meta name="keywords" content="BATU,Borg Al-Arab Technological University, batu grades, batugrades.rf.gd, نتائج جامعه برج العرب, جامعه برج العرب, جامعه برج العرب التكنلوجيا,جامعة برج العرب التكنولوجية, نتائج جامعة برج العرب التكنولوجية">
+    <meta name="viewport" content="width=device-width, initial-scale=0.75">
+    <title>BATU grades</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+<body data-new-gr-c-s-check-loaded="14.1094.0" data-gr-ext-installed="">
+  <form action="/grades" method="post">
+    <div class="login-root">
+      <div class="box-root flex-flex flex-direction--column" style="min-height: 100vh;flex-grow: 1;">
+        <div class="loginbackground box-background--white padding-top--64">
+        </div>
+        <div class="box-root padding-top--24 flex-flex flex-direction--column" style="flex-grow: 1; z-index: 9;">
+          <div class="box-root padding-top--48 padding-bottom--24 flex-flex flex-justifyContent--center">
+            <h1>Borg Al-Arab Technological University</h1>
+            <img src="logo.png" alt="logo">
+          </div>
+        <div class="formbg-outer">
+          <div class="formbg">
+            <div class="formbg-inner padding-horizontal--48">
+              <span class="padding-bottom--15">Final exam results</span>
+              <div class="field padding-bottom--24">
+                <label for="college">Choose your college</label>
+                <select name="college" id="college">
+                    <option value="null">برجاء اختيار القسم</option>
+
+                    <optgroup label="صناعه وطاقه">
+                      <option value="IT">تكنلوجيا المعلومات</option>
+                      <option value="RW">تكنلوجيا السكك الحديديه</option>
+                      <option value="SW">تكنلوجيا الغزل والنسيج</option>
+                      <option value="TAE">تكنلوجيا الجرارات والمعدات الزاعيه</option>
+                      <option value="FI">تكنلوجيا الصناعات الغذائيه</option>
+                    </optgroup>
+
+                    <optgroup label="علوم صحيه">
+                      <option value="sci">علوم صحيه</option>
+                    </optgroup>                
+                </select>
+              </div>
+              <div class="field padding-bottom--24">
+                <div>
+                  <label for="sitting_num">Sitting number</label>
+                </div>
+                <input required autofocus type="text" name="sitting_num"
+                  placeholder="Please enter your sitting number here" maxlength="7">
+              </div>
+              <div class="field padding-bottom--24">
+                <input type="submit" name="submit" value="Continue">
+              </div>
+              
+              <div class="error">
+                <p style="color: red;"><%= message %></p>
+              </div>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+</div>
+  </form>
+</body>
+</html>

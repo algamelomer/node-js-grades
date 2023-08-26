@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title><%= collegeName %></title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        table {
+            border-collapse: collapse;
+            width: 80%;
+            margin: 20px auto;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: center;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #ddd;
+        }
+    </style>
+</head>
+<body>
+    <h1>college: <%= collegeName %></h1>
+    <% if (row) { %>
+        <table>
+            <tr>
+                <% for (let cell of excelData[6]) { %>
+                    <th><%= cell %></th>
+                <% } %>
+            </tr>
+            <tr>
+                <% for (let cell of row) { %>
+                    <td><%= cell %></td>
+                <% } %>
+            </tr>
+        </table>
+    <% } else { %>
+        <p>No matching row found.</p>
+    <% } %>
+</body>
+</html>
